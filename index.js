@@ -11,10 +11,8 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.post("/", (req, res) => {
-  const { name } = req.body;
-  res.json({ name, message: "Working" });
-});
+app.use("/auth", require("./routes/auth/signup"));
+app.use("/auth", require("./routes/auth/login"));
 
 const startServer = async () => {
   const { success, error } = await connectToDB();
