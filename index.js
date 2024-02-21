@@ -13,6 +13,11 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/auth", require("./routes/auth/signup"));
 app.use("/auth", require("./routes/auth/login"));
+app.use("/books", require("./routes/books/addBook"));
+app.use("/books", require("./routes/books/getBookById"));
+app.use("/books", require("./routes/books/getAllBooks"));
+app.use("/books", require("./routes/books/updateBook"));
+app.use("/books", require("./routes/books/deleteBook"));
 
 const startServer = async () => {
   const { success, error } = await connectToDB();
